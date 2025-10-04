@@ -11,6 +11,7 @@ IAM20380::IAM20380(SPIClass* SPI, SPISettings settings, int cs) {
 void IAM20380::begin() {
     _SPI->begin();
     pinMode(_cs, OUTPUT);
+    digitalWrite(_cs, 1);
 }
 
 void IAM20380::_writeReg(byte reg, byte val) {
