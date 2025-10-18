@@ -24,8 +24,9 @@ void IAM20380::_writeReg(byte reg, byte val) {
 void IAM20380::config() {
     _writeReg(0x6B, 0x81); //"To initialize the sensor, perform a reset and let the IAM-20380 select the best clock source by setting the register PWR_MGMT_1 (address 0x6B) to 0x81"
     delay(500);
-    _writeReg(0x19, 0x01); //500 Hz
-    _writeReg(0x1B, 0x10); //1000 dps, No DLPF
+    _writeReg(0x19, 0x03); //250 Hz
+    _writeReg(0x1A, 0x03); //DPPF corner freq 41 Hz
+    _writeReg(0x1B, 0x10); //1000 dps
 }
 
 int16_t IAM20380::gyro_x() {
